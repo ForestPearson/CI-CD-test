@@ -22,7 +22,7 @@ jobs:
       - run: |
           touch test.py
           echo "print('test3')" >> test.py
-      - uses: actions/download-artifact@v3
+      - uses: actions/upload-artifact@v3
         with:
           name: new-python
           path: test.py
