@@ -16,6 +16,23 @@ jobs:
       #- name: install Dependencies
       #  run: pip install
       #- name: run app/
-      - run: ls -al
+      ##- run: ls -al
       - run: python main.py
-      - run: echo $API_KEY
+      ##- run: echo $API_KEY
+      - run: |
+              touch test.py
+              echo "print('test3')" >> test.py
+      - uses: actions/download-artifact@v3
+        with:
+          name: new-python
+          path: test.py
+
+  Second-step:
+    runs-on: ubuntu-latest # 22.04 bionic
+    needs: Run-app
+    steps:
+      - uses: actions/checkout@v3
+      - run: python test.py
+        with:
+          name: new-python
+        run: python test.py
