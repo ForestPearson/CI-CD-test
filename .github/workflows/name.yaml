@@ -7,15 +7,14 @@ on:
     branches: [main]
 
 jobs:
-  run:
-    runs-on: ubuntu-latest # 22.04 bionic
-    env:
-      API_KEY: ${{ secrets.API_KEY }}
-    steps:
-      - uses: actions/checkouts@v2
-      #- name: install Dependencies
-      #  run: pip install
-      - name: run app/
-        run: ls -al
-        run: python main.py
-        run: echo $API_KEY
+  runs-on: ubuntu-latest # 22.04 bionic
+  env:
+    API_KEY: ${{ secrets.API_KEY }}
+  steps:
+    - uses: actions/checkouts@v2
+    #- name: install Dependencies
+    #  run: pip install
+    #- name: run app/
+    - run: ls -al
+    - run: python main.py
+    - run: echo $API_KEY
